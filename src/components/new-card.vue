@@ -4,10 +4,10 @@
       <div class="card small white  valign-wrapper">
         <div class="addcard center">
           <!-- "+" -->
-          <i @click="clickPlus" v-show="!ifplusClicked" class="large mdi mdi-plus grey-text"></i>
+          <i @click="clickPlus" v-show="!ifplusClicked" transition="fade" class="large mdi mdi-plus grey-text"></i>
           <!-- card name input -->
-          <div class="input-field col s12" v-show="ifplusClicked">
-            <input @keyup.enter="newCard" id="card_name" type="text" v-model="cardName" v-name-focus="ifplusClicked">
+          <div class="input-field col s12" v-show="ifplusClicked" >
+            <input @keyup.enter="newCard" id="card_name" type="text" v-model="cardName" v-name-focus="ifplusClicked" @blur="ifplusClicked=false" >
             <label for="card_name">卡片命名</label>
           </div> 
 
@@ -70,6 +70,12 @@ export default {
 }
 .addcard i{
   cursor: pointer;
+}
+.fade-enter{
+  transition: all .1s ease;
+}
+.fade-leave{
+  transition: all 0s ease;
 }
 </style>
 
