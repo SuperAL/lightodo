@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="search" id="jetsSearch">
+	<ul id="a" class="jetsContent">
+		<li>dfjskd</li>
+		<li>hghf</li>
+		<li>fdgsfg</li>
+		<li>hgfd</li>
+		<li>gsdfgs</li>
+	</ul>
+	<script type="text/javascript" src="lib/js/Sortable.min.js"></script>
+	<script type="text/javascript" src="lib/js/jets.min.js"></script>
+	<script type="text/javascript">
+		var el = document.getElementById('a');
+		var sortable = Sortable.create(el);
+		var jets = new Jets({
+		  searchTag: '#jetsSearch',
+		  contentTag: '.jetsContent'
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{
+  "rules": {
+   
+      "$user_id": {
+        ".read": "$user_id == auth.uid.split(':')[1]",
+        ".write": "$user_id == auth.uid.split(':')[1]"
+      }
+    
+  }
+}
+
+{
+  "rules": {
+   
+      "$user_id": {
+        ".read": "$user_id == auth.uid.replace('simplelogin:','')",
+        ".write": "$user_id == auth.uid.replace('simplelogin:','')"
+      }
+    
+  }
+}
+
+// 使用
+{
+  "rules": {
+      ".write":true,
+      "$user_id": {
+        ".read": "$user_id == auth.uid"
+      }
+    
+  }
+}
