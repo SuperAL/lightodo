@@ -80,20 +80,21 @@
               <div class="input-field form-input col s12">
                 <label for="email">邮箱</label>
                 <input id="email" type="email" class="validate" v-model="login_email"
-                @blur="ifEmpty($event,login_email)" autocomplete="off"
+                @blur="ifEmpty($event,login_email)" @focus="this.$broadcast('btnReset')" autocomplete="off"
                 >
               </div>
             </div>
             <div class="row">
               <div class="input-field form-input col s12">
                 <label for="password">密码</label>
-                <input id="password" type="password" class="validate" v-model="login_password" @blur="ifEmpty($event,login_password)" autocomplete="off"
+                <input id="password" type="password" class="validate" v-model="login_password" @blur="ifEmpty($event,login_password)" @focus="this.$broadcast('btnReset')" autocomplete="off"
                 >
               </div>
             </div>
-            <a class="signinbtn btn-large btn-rnd" :class="{disabled:(!login_email)||(!login_password)}" @click="signIn">
+            <!-- <a class="signinbtn btn-large btn-rnd" :class="{disabled:(!login_email)||(!login_password)}" @click="signIn">
                 <span>Okay.</span>
-            </a>
+            </a> -->
+            <signup :disabled="signinDisabled" :failtip="'账号或密码错误'" @click="signIn($event)"></signup>
           </div>
           
           <div class="margin-sm">
@@ -138,7 +139,7 @@
             <!-- <a class="signupbtn btn-large  btn-rnd waves-effect waves-green-lightodo white font-green form-button" :class="{disabled:disabled}" @click="signUp"> -->
                 <!-- <span>Okay.</span> -->
             <!-- </a> -->
-            <signup :disabled="disabled" @click="signUp($event)"></signup>
+            <signup :disabled="signupDisabled" :failtip="'电子邮箱已被使用'" @click="signUp($event)"></signup>
           </div>
           
           <div class="margin-sm">
@@ -225,8 +226,11 @@ export default {
         return null;
       }
     },
-    disabled:function(){
+    signupDisabled:function(){
       return (!this.signup_nickname)||(!this.signup_email)||(!this.signup_password);
+    },
+    signinDisabled:function(){
+      return (!this.login_email)||(!this.login_password);
     }
   },
   methods:{
@@ -292,7 +296,7 @@ export default {
       }
       $(e.target).addClass('empty');
     },
-    signIn:function(){
+    signIn:function(e){
       if((!this.login_email)||(!this.login_password)){
         return;
       }
@@ -301,6 +305,7 @@ export default {
         function(err,data){
           if(err == null){
             console.log("auth success!");
+            // self.$broadcast('signupResult',e,true);
             self.uid = data.auth;
             $('#loginModal').closeModal();
             localStorage.removeItem('lightodo-cards');
@@ -311,6 +316,7 @@ export default {
             localStorage.removeItem('lightodo-quote');
           } else {
             console.log("auth failed,msg:",err);
+            self.$broadcast('signupResult',e,false);
           }
         }
       );

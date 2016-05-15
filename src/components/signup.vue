@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
       <button type="submit" class="btn-large" :class="{disabled:disabled}" >Okay.</button>
-      <span class="failtip" v-show='ifsuccess==false' transition="fade">电子邮箱已被使用</span>
+      <span class="failtip" v-show='ifsuccess==false' transition="fade" v-text="failtip"></span>
       <!-- <img src="https://www.dropbox.com/s/qfu4871umzhlcfo/check_arrow_2.svg?dl=1" alt=""> -->
       <i class="mdi mdi-check" :class="{'mdi-check':ifsuccess==true,'mdi-close':ifsuccess==false,'shown':ifsuccess!==null}" ></i>
       <!-- v-show="ifsuccess!==null" -->
@@ -22,7 +22,7 @@ export default {
       ifsuccess: null
     }
   },
-  props:['disabled'],
+  props:['disabled','failtip'],
   methods:{
     resetBtn:function(){
       // this.timer = null;
