@@ -4,27 +4,27 @@
 
 ## How to Use Lightodo
 
-### Add new card and todos
+1. Add new card and todos
 
 ![Add new card and todos](https://github.com/SuperAL/lightodo/blob/gh-pages/Gifs/addCard.gif)
 
-### Play with the header
+2. Play with the header
 
 ![Play with the header](https://github.com/SuperAL/lightodo/blob/gh-pages/Gifs/header.gif)
 
-### Sort or Delete the cards
+3. Sort or Delete the cards
 
 ![Sort or Delete the cards](https://github.com/SuperAL/lightodo/blob/gh-pages/Gifs/sortDelete.gif)
 
-### Set todo timer
+4. Set todo timer
 
 ![Set todo timer](https://github.com/SuperAL/lightodo/blob/gh-pages/Gifs/setTimer.gif)
 
-### Timer status and Sort todos
+5. Timer status and Sort todos
 
 ![Timer status and Sort todos](https://github.com/SuperAL/lightodo/blob/gh-pages/Gifs/more.gif)
 
-### Sign up and Sign In
+6. Sign up and Sign In
 
 ![Sign up and Sign In](https://github.com/SuperAL/lightodo/blob/gh-pages/Gifs/signup.gif)
 
