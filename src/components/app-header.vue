@@ -278,6 +278,7 @@ export default {
       this.login_email = null;
       this.login_password = null;
       this.hasAccount = false;
+      this.$broadcast('disabledUpdate',this.signupDisabled);
     },
     goLogin:function(){
       // $('input[type=email]').css('background-color','transparent');
@@ -288,6 +289,7 @@ export default {
       this.signup_password = null;
       this.hasAccount = true;
       this.$broadcast('btnReset');   
+      this.$broadcast('disabledUpdate',this.signinDisabled);
     },
     ifEmpty:function(e,info){
       $(e.target).removeClass('empty');

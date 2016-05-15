@@ -97,6 +97,9 @@ export default {
       if(this.ifsuccess !== null){
         this.resetBtn();
       }
+    },
+    disabledUpdate:function(ifDisabled){
+      this.disabled = ifDisabled;
     }
     // removeResult:function(e){
     //   console.log('removeResult');
