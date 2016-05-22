@@ -365,6 +365,7 @@ export default {
       // this.loading = false;
     },
     clearCardsS:function(){
+      this.loggedin = false;
       this.cards = [];
     }
   },
