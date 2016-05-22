@@ -7,7 +7,7 @@
           <i @click="clickPlus" v-show="!ifplusClicked" transition="fade" class="large mdi mdi-plus grey-text"></i>
           <!-- card name input -->
           <div class="input-field col s12" v-show="ifplusClicked" >
-            <input @keyup.enter="newCard" id="card_name" type="text" v-model="cardName" v-name-focus="ifplusClicked" @blur="ifplusClicked=false" >
+            <input @keyup.enter="newCard" id="card_name" type="text" v-model="cardName" v-name-focus="ifplusClicked" @blur="ifplusClicked=false" placeholder="按 Enter 保存">
             <label for="card_name">卡片命名</label>
           </div> 
 
