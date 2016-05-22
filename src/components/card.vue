@@ -205,6 +205,10 @@ export default {
       // }         
     },
     drop:function(e){
+      if(!this.card.todos){
+        // this.card.todos = [];
+        this.$set('card.todos', []);
+      }
       console.log("cardsort:"+this.cardsort);
       if(this.cardsort){
         this.cardsort = false;

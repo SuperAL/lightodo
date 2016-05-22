@@ -16,7 +16,8 @@ import appContent from './app-content.vue'
 export default {
   data () {
     return {
-      loading:false
+      loading:false,
+      ifloggedin:false
     }
   },
   components:{
@@ -32,13 +33,23 @@ export default {
       // this.loading = false;
       console.log('broadcast userLoggedS fin');
     },
-    startLoading:function(){
+    startLoading:function(ifloggedin){
+      this.ifloggedin = ifloggedin;
       console.log('start loading');
       this.loading = true;
     },
-    stopLoading:function(){
+    stopLoading:function(isloggedin){
+      if(this.ifloggedin){
+        if(isloggedin){
+          this.loading = false;
+        }
+      }else{
+        if(!isloggedin){
+          this.loading = false;
+        }
+      }
       console.log('stop loading');
-      this.loading = false;
+      // this.loading = false;
     },
     clearCardsF:function(){
       this.$broadcast('clearCardsS');

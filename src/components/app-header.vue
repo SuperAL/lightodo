@@ -377,13 +377,14 @@ export default {
         self.time = lightodoStorage.timeStorage.fetch();
         self.quote = lightodoStorage.quoteStorage.fetch();
         // self.$dispatch('userLoggedF',{cards:[],sort:true,loggedin:false});
-        // self.$dispatch('stopLoading');
+        // stopLoading false (用户未登录)
+        self.$dispatch('stopLoading',false);
         console.log(self.uid,self.userRef);
       }
       
     },
-    startLoadingS:function(){
-      this.$dispatch('startLoading');
+    startLoadingS:function(ifloggedin){
+      this.$dispatch('startLoading',ifloggedin);
     },
     stopLoadingS:function(){
       this.$dispatch('stopLoading');
@@ -423,9 +424,14 @@ export default {
       // if(!val.loggedIn){
       //   val.fnload();
       // }
+      // 判断用户是否登录
+      // 如果登录了就等数据传输结束再stoploading
+      // 如果未登录就等页面刷新完就stoploading
+      var ifloggedin = false;
       if(localStorage.getItem('wilddog:session::lightodo')){
-        val.fnload();
+        ifloggedin = true;
       }
+      val.fnload(ifloggedin);
       val.fn(val.loggedIn);
     }
   }

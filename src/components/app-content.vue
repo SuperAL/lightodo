@@ -360,7 +360,8 @@ export default {
       this.sortActive = val.sort;
       this.loggedin = val.loggedin;
       console.log('data finished');
-      this.$dispatch('stopLoading');
+      // stopLoading true (用户已登录)
+      this.$dispatch('stopLoading',true);
       // this.loading = false;
     },
     clearCardsS:function(){
